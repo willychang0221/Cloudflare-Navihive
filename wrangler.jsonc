@@ -1,30 +1,21 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
-    "name": "navihive",
-    "main": "worker/index.ts",
-    "compatibility_date": "2025-04-05",
-    "assets": {
-        "not_found_handling": "single-page-application"
-    },
-    "observability": {
-        "enabled": true
-    },
-    // D1数据库绑定
-    "d1_databases": [
-        {
-            "binding": "DB",
-            "database_name": "navigation-db",
-            "database_id": "9e31d920-7d96-4eea-a32e-5929a24e6652"
-        }
-    ],
-    "vars": {
-        "AUTH_ENABLED": "true",
-        "AUTH_USERNAME": "linuxdo",
-        "AUTH_PASSWORD": "linuxdo",
-        "AUTH_SECRET": "linuxdo"
-    }
+  "name": "navihive",
+  "compatibility_date": "2024-01-01",
+  "main": "worker/index.ts",
+
+  // 配置环境变量
+  "vars": {
+    "AUTH_ENABLED": "true",
+    "AUTH_REQUIRED_FOR_READ": "false",
+    "AUTH_USERNAME": "admin",
+    "AUTH_PASSWORD": "", // 下一步生成
+    "AUTH_SECRET": "" // 下一步生成
+  },
+
+  // 配置数据库
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "navigation-db",
+    "database_id": "9e31d920-7d96-4eea-a32e-5929a24e6652"  // 替换为实际 ID
+  }]
 }
